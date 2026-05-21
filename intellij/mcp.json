@@ -1,0 +1,83 @@
+{
+    "servers": {
+        "memory": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-memory"
+            ],
+            "env": {
+                "MEMORY_FILE_PATH": ""
+            }
+        },
+        "filesystem": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "/home/laksyalamat/"
+            ],
+            "env": {}
+        },
+        "sequential-thinking": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ]
+        },
+        "context7": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@upstash/context7-mcp"
+            ]
+        },
+        "git-mcp": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@cyanheads/git-mcp-server"
+            ]
+        },
+        "repomix": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "repomix",
+                "--mcp"
+            ]
+        },
+        "ado-mcp": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@tiberriver256/mcp-server-azure-devops"
+            ],
+            "env": {
+                "AZURE_DEVOPS_ORG_URL": "https://dev.azure.com/advantive-devops",
+                "AZURE_DEVOPS_DEFAULT_PROJECT": "Advantive",
+                "AZURE_DEVOPS_AUTH_METHOD": "pat",
+                "AZURE_DEVOPS_PAT": "<token here>",
+                "LOG_LEVEL": "debug"
+            }
+        },
+        "mysql-mcp": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@benborla29/mcp-server-mysql"
+            ],
+            "env": {
+                "MYSQL_HOST": "localhost",
+                "MYSQL_PORT": "3306",
+                "MYSQL_USER": "test",
+                "MYSQL_PASS": "test",
+                "MYSQL_ENABLE_LOGGING": "false"
+            }
+        }
+    }
+}
