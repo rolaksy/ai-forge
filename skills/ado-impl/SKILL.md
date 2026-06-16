@@ -4,7 +4,7 @@ description: >-
   Generate a detailed, actionable implementation plan from an ADO work item and its prior
   research document. Reads the existing research output, packs and analyses the relevant codebase,
   maps every required file change with code-level detail, and saves a structured plan to
-   /home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/implementation-plans/ as ADO<id>-implementation-plan-<datetime>.md.
+   /home/laksyalamat/projects/git/ai-forge/outcomes/ado-impl-plans/ as ADO<id>-implementation-plan-<datetime>.md.
   Use when: user types /ado-impl <work_item_id>; user asks to plan or implement an ADO ticket;
   user has finished research and wants to move to implementation planning; user says
   "plan this ticket", "create impl plan", "generate implementation plan for ADO",
@@ -59,7 +59,7 @@ the codebase.
 
 2. **Locate the research document.** Search for a matching file:
    ```
-   /home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/research/ADO<id>-research-*.md
+   /home/laksyalamat/projects/git/ai-forge/outcomes/ado-research/ADO<id>-research-*.md
    ```
    If multiple files match, use the most recent one (latest timestamp in filename).
    If no file is found, warn the user: "No research document found for ADO `<id>`. Run `/research <id>` first."
@@ -93,7 +93,7 @@ If the research document has a "Recommended Next Steps" section, treat it as the
 
 1. Create the directory if it does not exist:
    ```
-   /home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/implementation-plans/
+   /home/laksyalamat/projects/git/ai-forge/outcomes/ado-impl-plans/
    ```
 
 2. Construct the filename using the current date-time:
@@ -102,7 +102,7 @@ If the research document has a "Recommended Next Steps" section, treat it as the
    ```
    Each invocation creates a new timestamped file — never overwrite.
 
-3. Initialise the file with the skeleton from [../../templates/implementation-plan-template.md](../../templates/implementation-plan-template.md).
+3. Initialise the file with the skeleton from [references/implementation-plan-template.md](references/implementation-plan-template.md).
    Populate only the header fields (work item ID, title, date, repo, Java version, research doc link).
    Leave all task sections as `[To be completed]` placeholders until Step 4.
 
@@ -245,8 +245,8 @@ Append a **Plan Summary** at the top of the output file (after the header, befor
 
 | Property | Value |
 |---|---|
-| Output directory | `/home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/implementation-plans/` |
+| Output directory | `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-impl-plans/` |
 | Filename | `ADO<id>-implementation-plan-<YYYYMMDD-HHmmss>.md` |
-| Template | [../../templates/implementation-plan-template.md](../../templates/implementation-plan-template.md) |
+| Template | [references/implementation-plan-template.md](references/implementation-plan-template.md) |
 | Format | Markdown |
 | Overwrite policy | Never — always create a new timestamped file |

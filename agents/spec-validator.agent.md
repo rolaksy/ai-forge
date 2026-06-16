@@ -2,6 +2,7 @@
 name: spec-validator
 description: Validates a spec file against the codebase and ensures full unit test coverage. Never modifies the spec file.
 tools: [read, search, edit]
+model: GPT-5 mini (copilot)
 ---
 
 # Role
