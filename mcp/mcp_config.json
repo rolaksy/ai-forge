@@ -1,0 +1,63 @@
+{
+  "mcpServers": {
+    "devin/azure-devops": {
+      "args": [
+        "/home/laksyalamat/projects/KP-Xmit-AiAssist/mcp/node_modules/@tiberriver256/mcp-server-azure-devops/dist/index.js"
+      ],
+      "command": "node",
+      "env": {
+        "AZURE_DEVOPS_AUTH_METHOD": "pat",
+        "AZURE_DEVOPS_DEFAULT_PROJECT": "Advantive",
+        "AZURE_DEVOPS_ORG_URL": "https://dev.azure.com/advantive-devops",
+        "AZURE_DEVOPS_PAT": "",
+        "LOG_LEVEL": "debug"
+      }
+    },
+    "advantivegpt-mcp": {
+      "args": [
+        "/home/laksyalamat/projects/KP-Xmit-AiAssist/mcp/node_modules/@advantive/advantivegpt-mcp/dist/index.js"
+      ],
+      "command": "node"
+    },
+    "devin/context7": {
+      "args": [
+        "/home/laksyalamat/projects/KP-Xmit-AiAssist/mcp/node_modules/@upstash/context7-mcp/dist/index.js"
+      ],
+      "command": "node"
+    },
+    "devin/filesystem": {
+      "args": [
+        "/home/laksyalamat/projects/KP-Xmit-AiAssist/mcp/node_modules/@modelcontextprotocol/server-filesystem/dist/index.js"
+      ],
+      "command": "node",
+      "env": {
+        "FILESYSTEM_PATHS": "/home/laksyalamat/"
+      }
+    },
+    "devin/git": {
+      "args": [
+        "/home/laksyalamat/projects/KP-Xmit-AiAssist/mcp/node_modules/@cyanheads/git-mcp-server/dist/index.js"
+      ],
+      "command": "node"
+    },
+    "devin/memory": {
+      "args": [
+        "/home/laksyalamat/projects/KP-Xmit-AiAssist/mcp/node_modules/@modelcontextprotocol/server-memory/dist/index.js"
+      ],
+      "command": "node"
+    },
+    "repomix": {
+      "args": [
+        "/home/laksyalamat/projects/KP-Xmit-AiAssist/mcp/node_modules/repomix/bin/repomix.cjs",
+        "--mcp"
+      ],
+      "command": "node"
+    },
+    "sequential-thinking": {
+      "args": [
+        "/home/laksyalamat/projects/KP-Xmit-AiAssist/mcp/node_modules/@modelcontextprotocol/server-sequential-thinking/dist/index.js"
+      ],
+      "command": "node"
+    }
+  }
+}
