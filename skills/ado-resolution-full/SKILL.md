@@ -1,6 +1,6 @@
 ---
 name: ado-resolution-full
-description: "Generate a detailed resolution markdown file (root cause, fix details, changes) for an ADO work item. Use when: user asks to generate a resolution write-up, create a full resolution doc, or get a detailed resolution for an ADO item. Selects Bug Fix, Enhancement, or Support template based on work item type. Saves output as a markdown file in outcomes/ado/resolutions/."
+description: "Generate a detailed resolution markdown file (root cause, fix details, changes) for an ADO work item. Use when: user asks to generate a resolution write-up, create a full resolution doc, or get a detailed resolution for an ADO item. Selects Bug Fix, Enhancement, or Support template based on work item type. Saves output as a markdown file in outcomes/ado-resolutions/."
 argument-hint: "<work-item-id> [--auto]"
 user-invocable: true
 context: fork
@@ -8,7 +8,7 @@ context: fork
 
 # Generate Full Resolution Document for an ADO Work Item
 
-Generate a detailed resolution markdown file for an ADO work item. Saves the result to `outcomes/ado/resolutions/` — does NOT update ADO directly.
+Generate a detailed resolution markdown file for an ADO work item. Saves the result to `outcomes/ado-resolutions/` — does NOT update ADO directly.
 
 ## Permissions
 - Run all expected operations autonomously — do not pause for confirmation on routine steps.
@@ -59,7 +59,7 @@ Generate a detailed resolution markdown file for an ADO work item. Saves the res
 5. **Generate the resolution content** using the selected template (see below).
 
 6. **Save the markdown file**:
-   - Output path: `/home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/resolutions/ADO{work_item_id}-{slug}-resolution-full.md`
+   - Output path: `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-resolutions/ADO{work_item_id}-{slug}-resolution-full.md`
    - Where `{slug}` is a short kebab-case summary from `System.Title` (e.g. `lc-include-sample-config`)
    - Write the content directly as markdown — no wrapping code block
 

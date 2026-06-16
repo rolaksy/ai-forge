@@ -37,7 +37,7 @@ Do not hardcode a documentation output path unless the repository already has a 
 If creating general research documentation, confirm whether to use:
 
 ```text
-/home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/research
+/home/laksyalamat/projects/git/ai-forge/outcomes/ado-research/
 ```
 
 or another repository-specific path.

@@ -2,7 +2,7 @@
 name: ado-research
 description: >
   Research an Azure DevOps Work Item using the ADO MCP, Repomix, and AdvantiveGPT MCPs,
-   then generate a structured research document saved to /home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/research/.
+   then generate a structured research document saved to /home/laksyalamat/projects/git/ai-forge/outcomes/ado-research/.
   Output filename format: ADO<id>-research-<datetime>.md
   Use when: user types /research <work_item_id>; user asks to investigate, research,
   or kick-start analysis on an ADO work item; user wants a research doc generated for a ticket.
@@ -71,12 +71,12 @@ Never use terminal commands to create files or directories unless the MCP filesy
 
 ### Step 1 — Create Research Document
 
-**Output path:** `/home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/research/`
+**Output path:** `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-research/`
 **Filename format:** `ADO<work_item_id>-research-<datetime>.md`
   - `<datetime>` must be the current date and time at the moment the file is created, formatted as `YYYYMMDD-HHmmss` (e.g., `ADO12345-research-20260526-143022.md`).
   - Each invocation always creates a new file with a fresh timestamp — never overwrite an existing file.
 
-1. Create the folder `/home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/research/` if it does not already exist.
+1. Create the folder `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-research/` if it does not already exist.
 2. Determine the current date and time and construct the full filename: `ADO<work_item_id>-research-<datetime>.md`.
 3. Create the file at the resolved path.
 4. Initialise the document using the structure below. Use plain-text placeholders for all sections that have not yet been populated:
@@ -189,7 +189,7 @@ Researching work item — in progress.
 2. Generate a prioritised, actionable list of recommended next steps for the developer or tester who picks up this work item. Each step should be concrete and specific to the findings.
 3. Update the **Recommended Next Steps** section in the research document.
 4. Update the **Current Activity** section to: `Research complete.`
-5. Confirm the final document is saved and output the full file path to the user (e.g., `/home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/research/ADO12345-research-20260526-143022.md`).
+5. Confirm the final document is saved and output the full file path to the user (e.g., `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-research/ADO12345-research-20260526-143022.md`).
 
 ---
 

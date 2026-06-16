@@ -8,7 +8,7 @@ applyTo: '**'
 
 Follow project-specific coding, review, testing, documentation, troubleshooting, and security standards for Advantive/Kiwiplan projects.
 
-These instructions apply globally. Rules in `~/projects/KP-Xmit-AiAssit/instructions/*.instructions.md` whose filename or applyTo glob matches the current file or task type take priority over these general instructions. If there are conflicting rules between this file and a more specific instructions file, the more specific file's rules take precedence.
+These instructions apply globally. Rules in `~/projects/git/ai-forge/instructions/*.instructions.md` whose filename or applyTo glob matches the current file or task type take priority over these general instructions. If there are conflicting rules between this file and a more specific instructions file, the more specific file's rules take precedence.
 
 ## General Working Style
 
@@ -20,7 +20,7 @@ These instructions apply globally. Rules in `~/projects/KP-Xmit-AiAssit/instruct
 - Preserve existing project style and conventions unless there is a clear defect or risk.
 - Avoid speculative rewrites.
 - Always consider null, empty values, timeouts, error handling, logging, and backward compatibility.
-- Always look in /home/laksyalamat/projects/KP-Xmit-AiAssit/outcomes for relevant past outcomes before proceeding / research outputs / implementation plan etc to get context and avoid redundant work. If this path does not exist in the current environment, skip this step and proceed without past outcomes context. Do not fabricate or assume outcomes content.
+- Always look in /home/laksyalamat/projects/git/ai-forge/outcomes for relevant past outcomes before proceeding / research outputs / implementation plan etc to get context and avoid redundant work. If this path does not exist in the current environment, skip this step and proceed without past outcomes context. Do not fabricate or assume outcomes content.
 
 ## Codebase Exploration
 
@@ -32,7 +32,7 @@ These instructions apply globally. Rules in `~/projects/KP-Xmit-AiAssit/instruct
 Primary project root:
 
 ```text
-/home/laksyalamat/projects
+/home/laksyalamat/projects/git/ai-forge
 ```
 
 Most work is in Java repositories. Some repositories include React frontends. Legacy XMGEN/Fortran/C work is rare and should be handled conservatively.

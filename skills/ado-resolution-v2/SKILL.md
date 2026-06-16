@@ -1,6 +1,6 @@
 ---
 name: ado-resolution-v2
-description: "Generate a resolution document from an ADO work item and its PR. Use when: user says they completed an ADO task/story/technical item and provides a work item ID and/or PR URL; user asks to create a resolution, write up a resolution doc, or fill in the resolution template for an ADO item. Fetches all relevant details via ADO MCP (work item, PR, files changed, reviewers, dates) and produces a filled-in resolution markdown file in outcomes/ado/resolutions/."
+description: "Generate a resolution document from an ADO work item and its PR. Use when: user says they completed an ADO task/story/technical item and provides a work item ID and/or PR URL; user asks to create a resolution, write up a resolution doc, or fill in the resolution template for an ADO item. Fetches all relevant details via ADO MCP (work item, PR, files changed, reviewers, dates) and produces a filled-in resolution markdown file in outcomes/ado-resolutions/."
 argument-hint: "ADO work item ID and PR URL (e.g. 974347 https://dev.azure.com/.../pullrequest/42428)"
 user-invocable: true
 context: fork
@@ -74,14 +74,14 @@ Follow the template structure:
 
 ### Step 5 — Save the file
 
-Output path: `/home/laksyalamat/projects/KP-Xmit-AiAssist/outcomes/ado/resolutions/ADO{workItemId}-{slug}-resolution.md`
+Output path: `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-resolutions/ADO{workItemId}-{slug}-resolution.md`
 
 Where `{slug}` is a short kebab-case summary derived from the work item title (e.g. `lc-include-sample-config`).
 
 ## Output Naming Convention
 ```
-outcomes/ado/resolutions/ADO974347-lc-include-sample-config-resolution.md
-outcomes/ado/resolutions/ADO884141-gopfert-link-bug-fix-resolution.md
+outcomes/ado-resolutions/ADO974347-lc-include-sample-config-resolution.md
+outcomes/ado-resolutions/ADO884141-gopfert-link-bug-fix-resolution.md
 ```
 
 ## Notes
