@@ -10,6 +10,8 @@ description: >-
   "plan this ticket", "create impl plan", "generate implementation plan for ADO",
   "what do I need to change", "write the impl plan".
 argument-hint: '<work-item-id>'
+user-invocable: true
+context: fork
 ---
 
 # ADO Implementation Plan Skill

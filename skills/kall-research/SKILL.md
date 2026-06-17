@@ -2,6 +2,8 @@
 name: kall-research
 description: "Research an XMIT KALL number and generate a Markdown findings document. Use when: user invokes /kall-research with a KALL number, asks to investigate a KALL, look up KALL or SCM information, summarize work completed for a KALL, or continue an interrupted KALL research workflow."
 argument-hint: "<kall_number | continue>"
+user-invocable: true
+context: fork
 ---
 
 # KALL Research
@@ -73,7 +75,7 @@ After completing this step, continue to Step 1.
 5. If the file already exists, preserve existing useful content and continue improving it.
 6. Use internal file tools to create the folder and file when available.
 
-Initialize the document using the [KALL research template](../../templates/kall-research-template.md).
+Initialize the document using the [KALL research template](./references/kall-research-template.md).
 
 After completing this step, continue to Step 2.
 

@@ -25,7 +25,7 @@ Automate creation of a filled-in resolution document by fetching all relevant da
 ## Procedure
 
 ### Step 1 — Read the Resolution Template
-Read [../../templates/tesolution-template-v2.md](../../templates/tesolution-template-v2.md) to understand the expected structure before generating output.
+Read [./references/resolution-template-v2.md](./references/resolution-template-v2.md) to understand the expected structure before generating output.
 
 ### Step 2 — Fetch data in parallel via ADO MCP
 Call all three simultaneously:

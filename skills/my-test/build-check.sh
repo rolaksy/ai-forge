@@ -11,12 +11,12 @@ JAVA_MIN_VERSION=17
 # ── Pre-flight: verify Java version ─────────────────────────────────────────
 java_version=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}' | cut -d'.' -f1)
 if [[ -z "$java_version" ]]; then
-    echo "ERROR: Java not found on PATH. Run: ktsdk use java 17.0.19-amzn"
+    echo "ERROR: Java not found on PATH. Run: sdk use java 17.0.19-amzn"
     exit 1
 fi
 if [[ "$java_version" -lt "$JAVA_MIN_VERSION" ]]; then
     echo "ERROR: Java $JAVA_MIN_VERSION required but Java $java_version is active."
-    echo "       Run: ktsdk use java 17.0.19-amzn"
+    echo "       Run: sdk use java 17.0.19-amzn"
     exit 1
 fi
 

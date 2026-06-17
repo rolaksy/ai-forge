@@ -79,35 +79,7 @@ Never use terminal commands to create files or directories unless the MCP filesy
 1. Create the folder `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-research/` if it does not already exist.
 2. Determine the current date and time and construct the full filename: `ADO<work_item_id>-research-<datetime>.md`.
 3. Create the file at the resolved path.
-4. Initialise the document using the structure below. Use plain-text placeholders for all sections that have not yet been populated:
-
-```markdown
-# [Title Placeholder]
-
-## Work Item Type
-[Work item type placeholder]
-
-## Module
-[Module placeholder]
-
-### Current Activity
-Researching work item — in progress.
-
-### Description
-[Description placeholder]
-
-### References
-[References placeholder]
-
-### Domain Questions
-[No domain questions researched yet]
-
-### Code Questions
-[No code questions researched yet]
-
-### Recommended Next Steps
-[To be determined]
-```
+4. Initialise the document using the [research template](./references/research-template.md). Use plain-text placeholders for all sections that have not yet been populated.
 
 5. Write this initial content to the file and confirm the full file path to the user.
 

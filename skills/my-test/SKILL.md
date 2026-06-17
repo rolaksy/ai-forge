@@ -16,7 +16,7 @@ Run a full Maven `clean verify` for the current project and report build status,
 
 ## Prerequisites
 
-- Java 17 must be active. Switch with: `ktsdk use java 17.0.19-amzn`
+- Java 17 must be active. Switch with: `sdk use java 17.0.19-amzn`
 - A `pom.xml` must exist at the project root or the specified module path.
 
 ## Steps
@@ -32,7 +32,7 @@ If no `pom.xml` is found anywhere, stop and report the error clearly.
 Run in the terminal:
 
 ```bash
-ktsdk use java 17.0.19-amzn
+sdk use java 17.0.19-amzn
 ```
 
 ### Step 3 — Run the build script
@@ -40,7 +40,7 @@ ktsdk use java 17.0.19-amzn
 Execute [build-check.sh](./build-check.sh) from the project root. The script accepts optional Maven arguments (e.g. `-pl module-name -am`).
 
 ```bash
-bash ~/.copilot/skills/maven-build-check/build-check.sh [maven-args]
+bash /home/laksyalamat/projects/git/ai-forge/skills/my-test/build-check.sh [maven-args]
 ```
 
 The script:
