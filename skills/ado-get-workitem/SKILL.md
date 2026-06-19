@@ -4,7 +4,6 @@ description: "Fetch and display full details of an ADO work item. Use when: user
 argument-hint: "<work-item-id>"
 user-invocable: true
 context: fork
-model: gpt-4.1
 ---
 
 # Get ADO Work Item Details
@@ -181,7 +180,7 @@ _(if no PRs: "None linked")_
 ---
 
 ## Notes
-- Save all raw API responses to `outcomes/ado-get-workitem/ADO{id}.md` as fenced `json` code blocks before displaying the summary. If the write fails, log a warning but still display the summary.
+- Save all raw API responses to `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-get-workitem/ADO{id}.md` as fenced `json` code blocks before displaying the summary. If the write fails, log a warning but still display the summary.
 - If the work item ID does not exist or the tool returns an error, report the error clearly and stop.
 - Strip all HTML tags from `Description`, `AcceptanceCriteria`, and `Resolution` before displaying.
 - Date format for display: `dd MMM yyyy` (e.g. `26 May 2026`).
