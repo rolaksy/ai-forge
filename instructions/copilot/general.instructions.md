@@ -2,123 +2,75 @@
 applyTo: '**'
 ---
 
-# GitHub Copilot General Instructions
+# Unified AI Instructions (Shared Across Claude and Copilot)
 
 ## Purpose
 
-Follow project-specific coding, review, testing, documentation, troubleshooting, and security standards for Advantive/Kiwiplan projects.
+- Define one shared baseline for both Claude and Copilot harnesses.
+- Delegate file-type and domain-specific rules to the files in `instructions/common/`.
 
-These instructions apply globally. Rules in `~/projects/git/ai-forge/instructions/*.instructions.md` whose filename or applyTo glob matches the current file or task type take priority over these general instructions. If there are conflicting rules between this file and a more specific instructions file, the more specific file's rules take precedence.
+## Instruction Resolution Order
 
-## General Working Style
+1. Direct user instruction.
+2. Matching file/task-specific instructions in `instructions/common/*.instructions.md`.
+3. This shared baseline file.
+4. Existing repository conventions.
 
-- Prefer simple, readable, maintainable solutions.
-- Follow SOLID, DRY, KISS, and YAGNI.
-- Do not add new functionality unless explicitly requested.
-- Make minimal, targeted changes unless a broader refactor is requested.
-- Ask before major refactoring, public API changes, database schema changes, configuration changes, or build pipeline changes. If the user explicitly instructs you to proceed without confirmation, document the risky change inline with a comment or warning block before implementing it.
-- Preserve existing project style and conventions unless there is a clear defect or risk.
-- Avoid speculative rewrites.
-- Always consider null, empty values, timeouts, error handling, logging, and backward compatibility.
-- Always look in /home/laksyalamat/projects/git/ai-forge/outcomes for relevant past outcomes before proceeding / research outputs / implementation plan etc to get context and avoid redundant work. If this path does not exist in the current environment, skip this step and proceed without past outcomes context. Do not fabricate or assume outcomes content.
+If instructions conflict, apply the most specific matching rule.
 
-## Codebase Exploration
+## Mandatory Delegation to `instructions/common`
 
-- When analyzing a repository, always check for an existing repomix output before packing.
-- If no previous repomix output is found, pack the local repository using repomix mcp server before proceeding with analysis. If the repomix MCP server is unavailable or returns an error, state this explicitly and proceed with direct file-by-file exploration, noting that full context may be incomplete.
+- For any markdown or documentation output (`*.md`), follow `instructions/common/documentation.instructions.md`.
+- For Java code, follow both:
+	- `instructions/common/java-coding.instructions.md`
+	- `instructions/common/java-version-rules.instructions.md`
+- For Spring Boot or Maven-related work, follow `instructions/common/spring-boot-maven.instructions.md`.
+- For React/frontend files (`*.js`, `*.jsx`, `*.ts`, `*.tsx`, `*.css`, `*.scss`, `*.html`), follow `instructions/common/react-frontend.instructions.md`.
+- For Java/JS/TS test quality expectations, follow `instructions/common/testing-quality.instructions.md`.
+- For Fortran/C legacy files, follow `instructions/common/legacy-fortran-c.instructions.md`.
+- For all security-sensitive concerns, follow `instructions/common/security-and-compliance.instructions.md`.
+- For debugging/troubleshooting tasks, follow `instructions/common/troubleshooting-debugging.instructions.md`.
+- For repository landscape and setup context, follow `instructions/common/my-projects-setup.instructions.md`.
 
-## Project Context
+## Working Principles
 
-Primary project root:
+- Think before acting. Make assumptions explicit when they affect implementation.
+- Ask concise clarifying questions when ambiguity changes outcome.
+- Prefer minimal, targeted changes. Avoid speculative rewrites.
+- Match existing style and architecture patterns.
+- Keep solutions simple and maintainable (SOLID, DRY, KISS, YAGNI).
+- Do not add functionality that was not requested.
+- Preserve backward compatibility unless the user explicitly approves a breaking change.
+- Ask before major refactors, public API changes, database schema changes, configuration changes, or build pipeline changes.
+- Read affected exports, callers, and shared utilities before editing.
 
-```text
-/home/laksyalamat/projects/git/ai-forge
-```
+## Execution and Validation
 
-Most work is in Java repositories. Some repositories include React frontends. Legacy XMGEN/Fortran/C work is rare and should be handled conservatively.
-
-## Java Defaults
-
-- Do not assume all projects use the same Java version.
-- Use repository-specific Java rules.
-- Java 11 projects must not use newer Java language features.
-- Java 25 projects should default to Java 17-compatible language features (records, sealed classes, pattern matching for instanceof are acceptable). Avoid virtual threads, value types, or other Java 21+ features unless explicitly requested.
-- Prefer clear object-oriented code over clever or overly compact code.
-- Avoid cyclic package dependencies, especially in:
-
-```text
-com.kiwiplan.linkcentral.comms.core
-```
-
-## Backend Architecture
-
-- Prefer domain-oriented structure.
-- Use this ordering mindset where suitable:
-
-```text
-domain > service > adapter
-```
-
-- Avoid introducing controller-driven or god-service designs.
-- Keep responsibilities isolated.
-- Avoid large methods/classes when small focused extraction improves readability.
-
-## Frontend Defaults
-
-- Use React functional components and hooks.
-- Keep components small, reusable, and testable.
-- Prefer feature-based folder organization.
-- Avoid god components.
-- Use 2-space indentation for JavaScript/React.
-
-## Testing and Quality
-
-### Coverage Targets (hard minimums)
-
-- Backend line coverage: minimum 80%.
-- Backend branch coverage: minimum 70%.
-- These are hard minimums. Strive to exceed them where practical, but do not sacrifice test quality to hit numbers.
-
-### Test Design Rules
-
+- Define success criteria and verify before finishing.
 - Add or update tests when behavior changes.
-- Backend tests should use JUnit 5 unless the project already uses a different framework.
-- Frontend tests should use Jest and React Testing Library where applicable.
-- Aim for meaningful coverage, not coverage inflation.
-- Avoid snapshot testing unless there is a clear reason.
-- Integration tests should prefer real objects over mocks.
-- Unit tests should not mock only to inflate coverage.
-- Never change the target of a test just to make it pass.
+- Run relevant validation commands when possible.
+- If validation cannot be run, state exact manual commands and what they verify.
+- Report failures/blockers with concrete evidence. Do not fabricate outcomes.
 
-## Documentation
+## Project Context Practices
 
-- Update README or docs when adding a feature, workflow, script, configuration, or notable behavior change.
-- Use clear markdown headings and fenced code blocks.
-- Label multiple code snippets with file path and purpose.
-- Use Mermaid diagrams for architecture.
-- Use SVG for non-architecture diagrams.
+- Primary root: `/home/laksyalamat/projects/git/ai-forge`.
+- Check `/home/laksyalamat/projects/git/ai-forge/outcomes` for relevant prior outputs before deep analysis.
+- For large analysis tasks:
+	- Check for existing repomix packed outputs first.
+	- If missing and tooling is available, pack before deep analysis.
+	- If tooling is unavailable, continue with direct file analysis and state that limitation.
 
-## Security and Compliance
+## Security Baseline
 
-- Never expose secrets in code, logs, test data, generated docs, or examples.
-- Validate backend and frontend inputs.
+- Never expose secrets, tokens, credentials, or private keys.
 - Avoid logging sensitive values.
-- For Electron apps, use secure IPC and avoid insecure direct DOM manipulation from preload scripts.
+- Treat external inputs/responses as untrusted and validate at boundaries.
+- Do not add dependencies unless necessary and compatible with repository conventions.
 
-## CLI and Environment
+## Communication Style
 
-Use SDKMAN for Java version switching:
-
-```bash
-sdk use java 11.0.19-amzn
-sdk use java 17.0.19-amzn
-sdk use java 25.0.3-amzn
-```
-
-Do not create shell script files only to test functionality unless explicitly requested.
-
-## Validation
-
-- After refactoring, rerun relevant tests.
-- For build, dependency, or environment changes, provide the exact command used or recommended.
-- If tests cannot be run, clearly state what should be run manually.
+- Be concise, direct, and specific.
+- Avoid filler phrasing.
+- For multi-step work, checkpoint clearly: done, verified, next.
+- Separate facts, assumptions, and recommendations when summarizing.
