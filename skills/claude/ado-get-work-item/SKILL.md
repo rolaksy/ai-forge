@@ -10,7 +10,7 @@ disable-model-invocation: false
 
 ## Purpose
 
-Fetch a single Azure DevOps work item using MCP tools, then return Claude-friendly structured Markdown plus raw JSON.
+Fetch a single Azure DevOps work item using MCP tools, then save and return Claude-friendly structured Markdown plus raw JSON.
 
 ## Inputs
 
@@ -29,13 +29,20 @@ Do not call Python skill scripts for retrieval.
 ## Core Workflow
 
 1. Parse inputs.
-2. Call `mcp_azure-devops-_get_work_item` with:
+2. Build output file path: `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-get-workitem/ADO<work_item_id>.md`.
+3. Check whether that file already exists.
+4. If the file exists, ask the user whether to re-fetch from Azure DevOps.
+5. If the user says not to re-fetch, return the existing markdown content and file path, then stop.
+6. If the file does not exist, or the user confirms re-fetch, call `mcp_azure-devops-_get_work_item` with:
    - `workItemId = <work_item_id>`
    - `expand = <expand or all>`
-3. If tool call fails, return a compact error block with likely cause and next action.
-4. If successful, produce output in two sections:
+7. If tool call fails, return a compact error block with likely cause and next action.
+8. If successful, produce output in two sections:
    - `## Human Summary`
    - `## Raw JSON`
+9. Save the complete markdown output to `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-get-workitem/ADO<work_item_id>.md`.
+10. Ensure the `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-get-workitem/` directory exists before writing.
+11. In the final response, include the saved file path.
 
 ## Human Summary Format (Claude-Optimized)
 
@@ -59,6 +66,10 @@ Then include `## Raw JSON` with the unmodified tool response in a fenced `json` 
 - Never invent field values.
 - If a field is unavailable, state `Not available`.
 - If relation URLs exist without titles, still list them.
+- Before fetching, always check for `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-get-workitem/ADO<work_item_id>.md`.
+- If an existing file is found, ask the user whether to re-fetch from ADO.
+- On successful retrieval, always persist output to `/home/laksyalamat/projects/git/ai-forge/outcomes/ado-get-workitem/ADO<work_item_id>.md` before returning.
+- Keep the filename format exact: `ADO<id>.md` (for example: `ADO44206.md`).
 
 ## Error Handling
 
