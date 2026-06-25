@@ -40,6 +40,7 @@ If instructions conflict, apply the most specific matching rule.
 - Match existing style and architecture patterns.
 - Keep solutions simple and maintainable (SOLID, DRY, KISS, YAGNI).
 - Do not add functionality that was not requested.
+- Do not create `.claude` files or other AI-related workspace files unless the user explicitly requests them.
 - Preserve backward compatibility unless the user explicitly approves a breaking change.
 - Ask before major refactors, public API changes, database schema changes, configuration changes, or build pipeline changes.
 - Read affected exports, callers, and shared utilities before editing.

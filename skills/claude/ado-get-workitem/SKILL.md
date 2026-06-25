@@ -2,7 +2,7 @@
 name: ado-get-workitem
 description: "Fetch Azure DevOps work item details by ID using MCP tools, formatted for Claude Code workflows. USE FOR: inspect fields, acceptance criteria, links, and implementation context."
 argument-hint: "<work_item_id> [--expand=none|relations|fields|links|all] [--extra-fields=csv]"
-user-invocable: false
+user-invocable: true
 disable-model-invocation: false
 ---
 
