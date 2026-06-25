@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+        "advantivegpt-mcp": {
+            "args": [
+                "/home/laksyalamat/projects/git/ai-forge/mcp/node_modules/@advantive/advantivegpt-mcp/dist/index.js"
+            ],
+            "command": "node"
+        },
+        "context7": {
+            "args": [
+                "/home/laksyalamat/projects/git/ai-forge/mcp/node_modules/@upstash/context7-mcp/dist/index.js"
+            ],
+            "command": "node"
+        }
+    }
+}

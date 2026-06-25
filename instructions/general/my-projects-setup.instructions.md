@@ -9,7 +9,7 @@ applyTo: '**'
 All main repositories are located under:
 
 ```text
-/home/laksyalamat/projects
+/home/laksyalamat/projects/git
 ```
 
 ## Primary Work Type
