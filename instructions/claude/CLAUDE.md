@@ -62,6 +62,12 @@ If instructions conflict, apply the most specific matching rule.
 	- If missing and tooling is available, pack before deep analysis.
 	- If tooling is unavailable, continue with direct file analysis and state that limitation.
 
+## Output File Rules
+
+- Never create plans, analysis docs, implementation guides, or any `.md` output files inside working repos (e.g. KP-Xmit-*, KP-MAP, etc.). Working repos are for production code only.
+- All such outputs must go to `/home/laksyalamat/projects/git/ai-forge/outcomes/<subfolder>/`.
+- Always run `ls /home/laksyalamat/projects/git/ai-forge/outcomes/` first and pick an existing subfolder. Never create a new subfolder without checking what already exists.
+
 ## Security Baseline
 
 - Never expose secrets, tokens, credentials, or private keys.
